@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 33% 6%;
+    --foreground: 0 0% 98%;
+    --card: 250 25% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 250 25% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 250 20% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 250 18% 16%;
+    --muted-foreground: 250 8% 65%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 250 15% 20%;
+    --input: 250 15% 20%;
+    --ring: 262 83% 58%;
+    --radius: 1.25rem;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0B0B14;
+  color: #F5F5F7;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.gradient-text {
+  background-image: linear-gradient(100deg, #7C3AED 0%, #EC4899 52%, #FB923C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-bg {
+  background-image: linear-gradient(100deg, #7C3AED 0%, #EC4899 52%, #FB923C 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+.edge-fade {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@keyframes marquee-left {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+@keyframes marquee-right {
+  from { transform: translate3d(-50%,0,0); }
+  to { transform: translate3d(0,0,0); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+}
+.marquee-left { animation: marquee-left 60s linear infinite; }
+.marquee-right { animation: marquee-right 75s linear infinite; }
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes blob-drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(6%, -8%, 0) scale(1.12); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+.blob { animation: blob-drift 22s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none !important; }
+  .blob { animation: none !important; }
+  .marquee-scroller { overflow-x: auto !important; }
+}
