@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Globe, Server, CreditCard, Package, Search, MessageSquare, Bot, TrendingUp, Check, Plus, Minus, MessageCircle, Phone, Mail, MapPin, ShoppingCart } from 'lucide-react';
@@ -6,8 +6,9 @@ import Reveal from '@/components/Reveal';
 import Seo from '@/components/Seo';
 import Header from '@/components/site/Header';
 import Receipt, { Dashed } from '@/components/site/Receipt';
-import Reviews from '@/components/site/Reviews';
 import { wa, WA_DISPLAY, NAV_LINKS } from '@/lib/wa';
+
+const Reviews = lazy(() => import('@/components/site/Reviews'));
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY || '')}&q=${encodeURIComponent('Exxoniic Mall, Jahangir Pura, Surat, Gujarat 395005')}`;
@@ -171,6 +172,24 @@ function Faq() {
         </div>;
 }
 export default function HomePage() {
+  const mapRef = useRef(null);
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    if (!mapRef.current || showMap) return;
+
+    const node = mapRef.current;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setShowMap(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px 0px' });
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [showMap]);
+
   return <div id="top" className="relative min-h-screen bg-[#0B0B14] text-white">
             <Helmet>
                 <title>E-commerce Website Development in Surat | Cart Wise Co</title>
@@ -459,7 +478,9 @@ export default function HomePage() {
                     </Reveal>
                 </div>
                 <div className="mt-14">
-                    <Reviews />
+                    <Suspense fallback={<div className="flex min-h-[220px] items-center justify-center px-5 text-sm text-white/50">Loading reviews…</div>}>
+                        <Reviews />
+                    </Suspense>
                 </div>
             </section>
 
@@ -492,8 +513,8 @@ export default function HomePage() {
                             <p className="pl-8">Business hours: Monday to Friday, 9:00 AM to 6:00 PM</p>
                         </div>
                     </div>
-                    <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03]">
-                        {GOOGLE_MAPS_API_KEY ? <iframe
+                    <div ref={mapRef} className="overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.03]">
+                        {showMap && GOOGLE_MAPS_API_KEY ? <iframe
                             title="Cart Wise Co office location in Surat, Gujarat"
                             src={GOOGLE_MAPS_EMBED_URL}
                             width="600"

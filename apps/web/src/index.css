@@ -28,18 +28,18 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
   background-color: #0B0B14;
   color: #F5F5F7;
   overflow-x: clip;
 }
 
 h1, h2, h3, h4, .font-display {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Segoe UI", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 }
 
 .font-mono-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
 }
 
 .gradient-text {
@@ -87,9 +87,100 @@ html {
 }
 .blob { animation: blob-drift 22s ease-in-out infinite; }
 
+.brand-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, rgba(124,58,237,0.26), rgba(11,11,20,0.96) 38%, rgba(11,11,20,1) 100%);
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.brand-loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: center;
+}
+
+.brand-loader__logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.brand-loader__dot {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 9999px;
+  background: linear-gradient(100deg, #7C3AED 0%, #EC4899 52%, #FB923C 100%);
+  box-shadow: 0 0 22px rgba(236, 72, 153, 0.8);
+}
+
+.brand-loader__logo {
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #F5F5F7;
+}
+
+.brand-loader__logo span {
+  opacity: 0.5;
+}
+
+.brand-loader__text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+  min-height: 2rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.9rem, 2vw, 1.35rem);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  font-family: "Segoe UI", "Inter", sans-serif;
+}
+
+.brand-loader__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(8px);
+  animation: brand-loader-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.brand-loader__word--1 { animation-delay: 0.12s; }
+.brand-loader__word--2 { animation-delay: 0.24s; }
+.brand-loader__word--3 { animation-delay: 0.36s; }
+.brand-loader__word--4 { animation-delay: 0.48s; }
+.brand-loader__word--5 { animation-delay: 0.6s; }
+.brand-loader__word--6 { animation-delay: 0.72s; }
+
+@keyframes brand-loader-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track { animation: none !important; }
   .blob { animation: none !important; }
   .marquee-scroller { overflow-x: auto !important; }
+  .brand-loader__word {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
