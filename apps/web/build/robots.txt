@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /cart
-Disallow: /checkout
-Disallow: /api/
-Disallow: /editor
-Disallow: /__
-Sitemap: https://cartwiseco.com/sitemap.xml
