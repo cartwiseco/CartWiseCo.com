@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite --host :: --port 3000",
-    "build": "node tools/generate-sitemap.js && node tools/generate-llms.js || true && vite build --outDir build",
+    "build": "node tools/generate-sitemap.js && node tools/generate-llms.js || true && vite-react-ssg build --outDir build",
     "start": "vite preview --outDir build --host :: --port 3000",
     "lint": "eslint . --quiet; lint_status=$?; eslint \"src/**/*.jsx\" --config eslint.config.mjs --format ./eslint.unicode-escapes-formatter.mjs --no-error-on-unmatched-pattern; exit $lint_status",
     "lint:warn": "eslint ."
@@ -45,6 +45,7 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^11.15.0",
+    "gray-matter": "^4.0.3",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.469.0",
     "next-themes": "^0.4.6",
@@ -52,14 +53,17 @@
     "react-day-picker": "^9.14.0",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^3.0.0",
     "react-hook-form": "^7.71.2",
+    "react-markdown": "^10.1.0",
     "react-resizable-panels": "^4.7.2",
-    "react-router-dom": "^7.18.2",
+    "react-router-dom": "^6.30.1",
     "recharts": "^2.15.4",
     "sonner": "^2.0.7",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
+    "vite-react-ssg": "^0.9.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {
@@ -73,15 +77,15 @@
     "@vitejs/plugin-react": "^5.2.0",
     "autoprefixer": "^10.4.20",
     "esbuild": "^0.28.1",
+    "eslint": "^9.39.4",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
     "postcss": "^8.5.23",
     "tailwindcss": "^3.4.17",
     "terser": "^5.37.0",
-    "vite": "^7.3.6",
-    "eslint": "^9.39.4",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-import-resolver-alias": "^1.1.2"
+    "vite": "^7.3.6"
   }
 }

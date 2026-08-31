@@ -6,11 +6,11 @@ export function wa(message) {
 }
 
 export const NAV_LINKS = [
-  { label: 'Services', href: '#pricing' },
-  { label: 'Included', href: '#included' },
-  { label: 'Growth', href: '#growth' },
-  { label: 'Process', href: '#process' },
-  { label: 'Reviews', href: '#reviews' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Services', href: '/services' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];

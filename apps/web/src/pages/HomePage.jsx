@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Globe, Server, CreditCard, Package, Search, MessageSquare, Bot, TrendingUp, Check, Plus, Minus, MessageCircle, Phone, Mail, MapPin, ShoppingCart } from 'lucide-react';
 import Reveal from '@/components/Reveal';
@@ -13,10 +13,10 @@ const Reviews = lazy(() => import('@/components/site/Reviews'));
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const GOOGLE_MAPS_EMBED_URL = `https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY || '')}&q=${encodeURIComponent('Exxoniic Mall, Jahangir Pura, Surat, Gujarat 395005')}`;
 const STATS = [{
-  v: '151+',
-  l: 'Stores launched'
+  v: '470+',
+  l: 'Clients served'
 }, {
-  v: '3',
+  v: '12+',
   l: 'Platforms mastered'
 }, {
   v: '~12',
@@ -27,18 +27,18 @@ const STATS = [{
 }];
 const PLANS = [{
   name: 'WooCommerce',
-  price: '₹29,999',
+  price: '₹35,999',
   desc: 'Self-hosted flexibility on WordPress. Great for brands who want full ownership without a monthly platform fee.',
   items: ['Up to 50 products listed', 'Mobile-responsive theme', 'Cart & checkout setup', '1 payment gateway integration', 'Basic on-page SEO setup', '14 days post-launch support']
 }, {
   name: 'Shopify',
-  price: '₹44,999',
+  price: '₹53,999',
   featured: true,
   desc: 'Speed and scale without touching code. Best for brands who want to move fast and grow without server headaches.',
   items: ['Up to 100 products listed', 'Premium theme customization', 'Cart & checkout setup', 'Payment gateway + shipping integration', 'Review & upsell app setup', '14 days post-launch support']
 }, {
   name: 'Custom',
-  price: '₹54,999',
+  price: '₹65,999',
   desc: 'A fully custom build for brands with a specific vision, unusual catalog, or workflow no template can hold.',
   items: ['Fully custom design, no templates', 'Unlimited product architecture', 'Custom checkout flow', 'Multi payment gateway + shipping', 'Admin dashboard training', '30 days post-launch support']
 }];
@@ -79,7 +79,7 @@ const GROWTH = [{
 const GROWTH_PLANS = [
   {
     name: 'SEO, AEO, GEO & Website Management',
-    price: '₹14,999',
+    price: '₹17,999',
     desc: 'Ongoing search, answer-engine and generative-engine optimization plus full website management — billed monthly.',
     items: [
       'Monthly SEO optimization & reporting',
@@ -91,7 +91,7 @@ const GROWTH_PLANS = [
   },
   {
     name: 'Ads & Website Management',
-    price: '₹14,999',
+    price: '₹17,999',
     desc: 'Google & Meta Ads campaigns managed end-to-end plus full website management — billed monthly.',
     items: [
       'Google & Meta Ads campaign management',
@@ -103,7 +103,7 @@ const GROWTH_PLANS = [
   },
   {
     name: 'All In',
-    price: '₹29,999',
+    price: '₹35,999',
     desc: 'Everything in one plan — SEO, AEO, GEO, Ads and full website management. The complete growth engine, billed monthly.',
     items: [
       'Monthly SEO optimization & reporting',
@@ -200,7 +200,7 @@ export default function HomePage() {
             <Header />
 
             {/* HERO */}
-            <section className="relative flex min-h-[100dvh] items-center overflow-hidden px-5 pb-20 pt-32 sm:px-8">
+            <section className="relative flex min-h-[74svh] items-center overflow-hidden px-4 pb-14 pt-24 sm:min-h-[88svh] sm:px-8 sm:pb-20 sm:pt-28 lg:min-h-[100dvh] lg:pt-32">
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
                     <div className="blob absolute -left-24 top-10 h-[26rem] w-[26rem] rounded-full bg-[#7C3AED]/25 blur-[110px]" />
                     <div className="blob absolute right-0 top-40 h-[24rem] w-[24rem] rounded-full bg-[#EC4899]/20 blur-[120px]" style={{
@@ -219,12 +219,12 @@ export default function HomePage() {
                         </span>
                     </Reveal>
                     <Reveal delay={0.08}>
-                        <h1 className="mt-7 max-w-4xl text-[2.6rem] font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-[4.5rem]">
+                        <h1 className="mt-6 max-w-4xl text-[2.2rem] font-bold leading-[0.98] tracking-[-0.04em] sm:text-[3.25rem] lg:text-[4.7rem]">
                             E-commerce website development company in <span className="gradient-text">India</span>.
                         </h1>
                     </Reveal>
                     <Reveal delay={0.16}>
-                        <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+                        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base lg:text-lg">
                             We build WooCommerce, Shopify and fully custom e-commerce stores end-to-end — design, development, and full integration of your domain, hosting, payment gateway and shipping partner.
                         </p>
                     </Reveal>
@@ -250,7 +250,7 @@ export default function HomePage() {
             </section>
 
             {/* PRICING */}
-            <section id="pricing" className="px-5 py-24 sm:px-8 sm:py-28">
+            <section id="pricing" className="px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[76rem]">
                     <Reveal>
                         <SectionHead eyebrow="Pricing" title={<>Pick your platform. <span className="gradient-text">Prices are honest.</span></>} />
@@ -292,7 +292,7 @@ export default function HomePage() {
             </section>
 
             {/* INCLUDED */}
-            <section id="included" className="border-y border-white/[0.06] bg-white/[0.015] px-5 py-24 sm:px-8 sm:py-28">
+            <section id="included" className="border-y border-white/[0.06] bg-white/[0.015] px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[76rem]">
                     <Reveal>
                         <SectionHead eyebrow="What's included" title={<>We build the engine. <span className="gradient-text">You keep the keys.</span></>} intro="Domain, hosting, payment gateway and shipping accounts stay registered in your name — we handle the full technical integration so everything works together from day one." />
@@ -314,7 +314,7 @@ export default function HomePage() {
             </section>
 
             {/* GUARANTEE */}
-            <section id="guarantee" className="px-5 py-24 sm:px-8 sm:py-28">
+            <section id="guarantee" className="px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[76rem]">
                     <Reveal>
                         <SectionHead eyebrow="Guarantee" title={<>What if I don&apos;t like <span className="gradient-text">my store?</span></>} />
@@ -402,7 +402,7 @@ export default function HomePage() {
             </section>
 
             {/* GROWTH */}
-            <section id="growth" className="px-5 py-24 sm:px-8 sm:py-28">
+            <section id="growth" className="px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[76rem]">
                     <Reveal>
                         <SectionHead eyebrow="Growth & management" title={<>Your store is live. Now <span className="gradient-text">let&apos;s get it found.</span></>} intro="Building the store is step one — getting the right customers to actually find it is ongoing work. We manage that too, so you're not left figuring out SEO and ads alone." />
@@ -453,7 +453,7 @@ export default function HomePage() {
             </section>
 
             {/* PROCESS */}
-            <section id="process" className="border-y border-white/[0.06] bg-white/[0.015] px-5 py-24 sm:px-8 sm:py-28">
+            <section id="process" className="border-y border-white/[0.06] bg-white/[0.015] px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[68rem]">
                     <Reveal>
                         <SectionHead eyebrow="Process" title={<>Five steps, <span className="gradient-text">start to launch.</span></>} center={false} />
@@ -471,7 +471,7 @@ export default function HomePage() {
             </section>
 
             {/* REVIEWS */}
-            <section id="reviews" className="overflow-hidden py-24 sm:py-28">
+            <section id="reviews" className="overflow-hidden py-20 sm:py-24 lg:py-28">
                 <div className="px-5 sm:px-8">
                     <Reveal>
                         <SectionHead eyebrow="Reviews" title={<>What clients <span className="gradient-text">actually say</span></>} />
@@ -485,7 +485,7 @@ export default function HomePage() {
             </section>
 
             {/* FAQ */}
-            <section id="faq" className="border-t border-white/[0.06] px-5 py-24 sm:px-8 sm:py-28">
+            <section id="faq" className="border-t border-white/[0.06] px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto max-w-[76rem]">
                     <Reveal>
                         <SectionHead eyebrow="FAQ" title={<>Before you <span className="gradient-text">ask</span></>} />
@@ -497,7 +497,7 @@ export default function HomePage() {
             </section>
 
             {/* LOCAL CONTACT */}
-            <section id="contact" className="border-t border-white/[0.06] px-5 py-24 sm:px-8 sm:py-28">
+            <section id="contact" className="border-t border-white/[0.06] px-4 py-20 sm:px-8 sm:py-24 lg:py-28">
                 <div className="mx-auto grid max-w-[76rem] gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
                     <div>
                         <SectionHead
@@ -559,61 +559,6 @@ export default function HomePage() {
                     </div>
                 </Reveal>
             </section>
-
-            {/* FOOTER */}
-            <footer className="border-t border-white/[0.08] px-5 py-14 sm:px-8">
-                <div className="mx-auto max-w-[76rem]">
-                    <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr]">
-                        <div>
-                            <div className="flex items-center gap-2.5">
-                                <span className="h-2.5 w-2.5 rounded-full gradient-bg" />
-                                <span className="font-display text-xl font-bold tracking-tight">
-                                    CartWise<span className="text-white/45">Co</span>
-                                </span>
-                            </div>
-                            <p className="mt-3 max-w-sm text-sm text-white/50">
-                                E-commerce stores built end-to-end for Indian small businesses.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-mono-num text-[11px] uppercase tracking-[0.22em] text-white/40">Explore</h3>
-                            <ul className="mt-4 space-y-2.5">
-                                {NAV_LINKS.filter(l => l.label !== 'FAQ').map(l => <li key={l.href}>
-                                        <a href={l.href} className="text-sm text-white/65 transition-colors hover:text-white">{l.label}</a>
-                                    </li>)}
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="font-mono-num text-[11px] uppercase tracking-[0.22em] text-white/40">Contact</h3>
-                            <ul className="mt-4 space-y-2.5">
-                                <li>
-                                    <a href={wa('Hi CartWiseCo!')} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/65 transition-colors hover:text-white">
-                                        <MessageCircle size={14} /> WhatsApp
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tel:+919408216171" className="font-mono-num inline-flex items-center gap-2 text-sm text-white/65 transition-colors hover:text-white">
-                                        <Phone size={14} /> {WA_DISPLAY}
-                                    </a>
-                                </li>
-                                <li className="text-sm leading-relaxed text-white/65">
-                                    Office No. 357, 3rd Floor, Exxoniic Mall, Jahangir Pura, Surat, Gujarat 395005
-                                </li>
-                                <li>
-                                    <a href="mailto:official.cartwiseco@gmail.com" className="text-sm text-white/65 transition-colors hover:text-white">
-                                        official.cartwiseco@gmail.com
-                                    </a>
-                                </li>
-                                <li className="text-sm text-white/65">Monday to Friday, 9:00 AM to 6:00 PM</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="mt-12 flex flex-col gap-2 border-t border-white/[0.08] pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-                        <p>© 2026 CartWiseCo. All rights reserved.</p>
-                        <p>Built with care, one store at a time.</p>
-                    </div>
-                </div>
-            </footer>
 
             <a href={wa('Hi CartWiseCo, I have a question about building my online store.')} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="fixed bottom-6 right-6 z-40 grid h-14 w-14 place-items-center rounded-full gradient-bg text-white shadow-[0_18px_45px_-15px_rgba(236,72,153,0.85)] transition-transform duration-200 hover:scale-105 active:scale-95">
                 <MessageCircle size={24} strokeWidth={2} />

@@ -1,2 +1,8 @@
 ## Pages
-- [E-commerce Website Development in Surat | Cart Wise Co](/): Cart Wise Co builds Shopify, WooCommerce and custom e-commerce stores in Surat, Gujarat, with design, development, payments and shipping integration.
+- [About | Cart Wise Co](/about): Learn about Cart Wise Co, a Surat-based e-commerce agency building Shopify, WooCommerce, and custom D2C stores for brands moving away from marketplaces.
+- [Blog | Cart Wise Co](/blog): Insights for marketplace sellers building direct-to-consumer brands and ecommerce growth strategies.
+- [Contact | Cart Wise Co](/contact): Contact Cart Wise Co for Shopify, WooCommerce, custom e-commerce development and monthly growth retainers in Surat, Gujarat.
+- [Portfolio | Cart Wise Co](/portfolio): Explore case study-style portfolio entries from Cart Wise Co for Shopify, WooCommerce, and custom retail stores.
+- [Pricing | Cart Wise Co](/pricing): Transparent pricing for Shopify, WooCommerce, custom e-commerce builds and monthly growth retainers from Cart Wise Co.
+- [Services | Cart Wise Co](/services): E-commerce store design, Shopify setup, WooCommerce builds, SEO, ads management, and growth retainers from Cart Wise Co.
+- [Untitled Page](/blogpost): No description available

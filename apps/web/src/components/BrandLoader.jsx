@@ -5,10 +5,8 @@ const TAGLINE = 'great things are on the way';
 export default function BrandLoader({ visible }) {
     const shouldRender = useMemo(() => visible, [visible]);
 
-    if (!shouldRender) return null;
-
     return (
-        <div className="brand-loader" aria-live="polite" aria-label="Loading CartWiseCo">
+        <div className={`brand-loader ${!shouldRender ? 'is-hidden' : ''}`} aria-live="polite" aria-label="Loading CartWiseCo">
             <div className="brand-loader__inner">
                 <div className="brand-loader__logo-wrap">
                     <span className="brand-loader__dot" />
